@@ -24,13 +24,9 @@ CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 def create_entity_payload(state) -> dict:
     """Create the payload for a single entity."""
     payload = {
-        "name": state.attributes.get('friendly_name', state.entity_id),
-        "value": state.state,
-        "device_class": state.attributes.get('device_class', None),
-        "unit_of_measurement": state.attributes.get('unit_of_measurement', None),
-        "icon": state.attributes.get('icon', None),
-        "friendly_name": state.attributes.get('friendly_name', state.entity_id),
-        "attributes": state.attributes
+        "n": state.attributes.get('friendly_name', state.entity_id),
+        "val": state.state,
+        "u": state.attributes.get('unit_of_measurement', None)
     }
     _LOGGER.debug("TRMNL: Created payload for %s: %s", state.entity_id, payload)
     return payload
@@ -82,13 +78,14 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
         # Send to TRMNL webhook if we have entities
         if entities_payload:
+            _LOGGER.debug("TRMNL: Preparing to send entities: %s", entities_payload)
+
             payload = {
                 "merge_variables": {
-                    "entities": entities_payload
+                    "ents": entities_payload
                 }
             }
-            _LOGGER.debug("TRMNL: Preparing to send payload: %s", payload)
-            
+
             try:
                 async with aiohttp.ClientSession() as session:
                     _LOGGER.debug("TRMNL: Sending POST request to %s", url)
