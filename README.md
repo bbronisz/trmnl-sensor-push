@@ -10,7 +10,7 @@ Because the e-ink display is optimized for long battery life, updates will be mo
 ## Installation
 
 ### HACS Installation
-[![Add repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bbronisz&repository=trmnltrmnl-sensor-push&category=integration)
+[![Add repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bbronisz&repository=trmnl-sensor-push&category=integration)
 [![Add Integration to your Home Assistant
 instance.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=trmnl_sensor_push)
 
